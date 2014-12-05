@@ -1,0 +1,28 @@
+This code is based on the code from Internet.
+
+1. build and install
+=====================
+	$ make
+	$ sudo make install
+
+2. dnw tool usage 
+=====================
+Connect board to PC and open minicom. Boot board and enter U-Boot command line mode.
+Then run command "dnw <download address>" in U-Boot. U-Boot may print bellow message:
+	Insert a OTG cable into the connector!
+	OTG cable Connected!
+	Now, Waiting for DNW to transmit data
+
+Now, you can download your file to board by follow command on PC:
+	$ sudo dnw [-a load-address] <file_to_download>
+
+Note: Please set the right load-address via "-a" option.
+      Above steps have only download file to board's RAM, so you need  flash
+      it to nand via U-Boot command "nand write".
+
+If above doesn't work, pls check if you can see bellow message in `dmesg`.
+	usb 1-1: new full speed USB device using uhci_hcd and address 2
+	usb 1-1: configuration #1 chosen from 1 choice
+	secbulk:secbulk probing...
+	secbulk:bulk out endpoint found!
+

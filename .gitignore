@@ -1,6 +1,6 @@
 # Object files
 *.o
-*.ko
+#*.ko
 *.obj
 *.elf
 
@@ -27,3 +27,13 @@
 *.i*86
 *.x86_64
 *.hex
+
+# linux driver modules.*
+*.ko.cmd
+*.o.cmd
+.tmp_versions
+*.mod
+*symvers
+*.order
+*.mod.c
+
